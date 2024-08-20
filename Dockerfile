@@ -14,3 +14,7 @@ RUN pacman -Syu --noconfirm --noprogressbar --needed \
 	zip \
 	unzip \
 	&& sudo pacman -Scc
+
+
+#open nvim on startup
+CMD nvim
