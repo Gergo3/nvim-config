@@ -31,6 +31,8 @@ RUN mkdir ~/.config/nvim
 COPY .config /root
 
 
+#install plugins
+RUN nvim +PlugInstall +qall
 
 #open nvim on startup
 CMD nvim
