@@ -28,7 +28,7 @@ RUN sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/p
 #create vimrc
 RUN mkdir -p ~/.config/nvim
 
-COPY .config /root
+COPY .config /root/.config
 
 
 #install plugins
