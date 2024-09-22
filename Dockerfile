@@ -34,5 +34,11 @@ COPY .config /root/.config
 #install plugins
 RUN nvim +PlugInstall +qall
 
+
+#mount source
+RUN mkdir /root/src
+VOLUME /root/src
+
 #open nvim on startup
-CMD nvim
+WORKDIR /root/src
+CMD nvim +Ex
