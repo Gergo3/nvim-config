@@ -5,5 +5,6 @@ services:
       - type: bind
         source: ./
         target: /root/src
-    
+    stdin_open: true
+    tty: true
 
