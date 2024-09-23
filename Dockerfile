@@ -35,9 +35,8 @@ COPY .config /root/.config
 RUN nvim +PlugInstall +qall
 
 
-#mount source
+#create source dir source
 RUN mkdir /root/src
-VOLUME /root/src
 
 #open nvim on startup
 WORKDIR /root/src
