@@ -8,6 +8,9 @@ FROM archlinux:base-devel
 #install packages
 RUN pacman -Syu --noconfirm --noprogressbar --needed \
 	neovim \
+#        luarocks \
+        lua-language-server \
+        npm \
 	tree \
 	fzf \
 	git \
@@ -16,6 +19,14 @@ RUN pacman -Syu --noconfirm --noprogressbar --needed \
 	zip \
 	unzip \
 	&& pacman -Scc
+
+RUN npm update -g \
+        && npm install -g \
+        vim-language-server \
+        && npm cache clear --force
+
+##install lua packages
+#RUN 
 
 
 
