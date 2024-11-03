@@ -21,6 +21,8 @@ Plug 'neovim/nvim-lspconfig'
 
 "luasnip
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Replace <CurrentMajor> by the latest released major (first number of latest release)
+Plug 'rafamadriz/friendly-snippets'
+Plug 'molleweide/LuaSnip-snippets.nvim'
 
 "nvim-cmp
 Plug 'hrsh7th/nvim-cmp'
@@ -30,8 +32,37 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'saadparwaiz1/cmp_luasnip'
 
+"lsp setup
+"lua
+"Plug 'folke/lazydev.nvim'
 
 call plug#end()
+
+
+"lspconfig
+lua require'lspconfig'.vimls.setup{}
+
+lua << EOF
+
+
+
+EOF
+
+lua << EOF
+
+    --setup snippets
+    return function()
+
+        local luasnip = require("luasnip")
+
+        -- be sure to load this first since it overwrites the snippets table.
+        luasnip.snippets = require("luasnip-snippets").load_snippets()
+
+        require("luasnip.loaders.from_vscode").lazy_load()
+
+    end
+
+EOF
 
 lua << EOF
   -- Set up nvim-cmp.
@@ -101,11 +132,11 @@ lua << EOF
   })
 
   -- Set up lspconfig.
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-    capabilities = capabilities
-  }
+  -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
+  --   capabilities = capabilities
+  -- }
 
 EOF
 
