@@ -1,6 +1,6 @@
 services:
   ide:
-    image: nvim-base
+    image: gergo111/nvim-base
     volumes:
       - type: bind
         source: ./
