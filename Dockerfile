@@ -6,7 +6,10 @@ FROM archlinux:base-devel
 
 
 #install packages
-RUN pacman -Syu --noconfirm --noprogressbar --needed \
+RUN pacman -Sy --noconfirm --noprogressbar --needed archlinux-keyring \
+	&& pacman-key --init \
+	&& pacman-key --populate archlinux \
+	&& pacman -Syu --noconfirm --noprogressbar --needed \
 	neovim \
 #        luarocks \
         lua-language-server \
@@ -18,7 +21,7 @@ RUN pacman -Syu --noconfirm --noprogressbar --needed \
 	curl \
 	zip \
 	unzip \
-	&& pacman -Scc
+	&& pacman -Scc --noconfirm --noprogressbar --needed
 
 RUN npm update -g \
         && npm install -g \
@@ -44,6 +47,9 @@ COPY .config /root/.config
 
 #install plugins
 RUN nvim +PlugInstall +qall
+
+#install treesitter parsers
+RUN nvim +TSUpdate +qall
 
 
 #create source dir source
