@@ -19,6 +19,11 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "lspconfig
 Plug 'neovim/nvim-lspconfig'
 
+
+"dap
+Plug 'mfussenegger/nvim-dap'
+
+
 "luasnip
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Replace <CurrentMajor> by the latest released major (first number of latest release)
 Plug 'rafamadriz/friendly-snippets'
