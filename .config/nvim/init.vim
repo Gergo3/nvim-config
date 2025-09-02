@@ -22,6 +22,7 @@ Plug 'neovim/nvim-lspconfig'
 
 "dap
 Plug 'mfussenegger/nvim-dap'
+Plug 'theHamsta/nvim-dap-virtual-text'
 
 
 "luasnip
@@ -104,6 +105,11 @@ EOF
 
 "lspconfig
 lua require'lspconfig'.vimls.setup{}
+
+"dap-ui
+lua <<EOF
+require("nvim-dap-virtual-text").setup()
+EOF
 
 lua << EOF
 
