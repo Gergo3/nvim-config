@@ -23,6 +23,7 @@ Plug 'neovim/nvim-lspconfig'
 "dap
 Plug 'mfussenegger/nvim-dap'
 Plug 'theHamsta/nvim-dap-virtual-text'
+Plug 'igorlfs/nvim-dap-view'
 
 
 "luasnip
