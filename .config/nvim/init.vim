@@ -108,7 +108,7 @@ EOF
 
 
 "lspconfig
-lua require'lspconfig'.vimls.setup{}
+lua vim.lsp.enable(vimls)
 
 "dap-ui
 lua <<EOF
@@ -116,11 +116,6 @@ require("nvim-dap-virtual-text").setup()
 require("dapui").setup()
 EOF
 
-lua << EOF
-
-
-
-EOF
 
 lua << EOF
 
