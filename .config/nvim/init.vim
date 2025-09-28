@@ -108,7 +108,7 @@ EOF
 
 
 "lspconfig
-lua vim.lsp.enable(vimls)
+lua vim.lsp.enable('vimls')
 
 "dap-ui
 lua <<EOF
