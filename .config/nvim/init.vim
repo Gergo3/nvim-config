@@ -20,10 +20,13 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 
 
-"dap
+""dap
 Plug 'mfussenegger/nvim-dap'
 Plug 'theHamsta/nvim-dap-virtual-text'
-Plug 'igorlfs/nvim-dap-view'
+"Plug 'igorlfs/nvim-dap-view'
+"dap-ui
+Plug 'nvim-neotest/nvim-nio'
+Plug 'rcarriga/nvim-dap-ui'
 
 
 "luasnip
@@ -110,6 +113,7 @@ lua require'lspconfig'.vimls.setup{}
 "dap-ui
 lua <<EOF
 require("nvim-dap-virtual-text").setup()
+require("dapui").setup()
 EOF
 
 lua << EOF
