@@ -40,10 +40,10 @@ endfunction
 
 set statuscolumn=%!MyStatusColumn()
 
-set signcolumn=yes:3
+set signcolumn=yes
 
 set foldcolumn=1
-"set fillchars=foldopen:,foldsep:│,foldclose:
+set fillchars=foldopen:,foldsep:│,foldclose:
 set foldlevel=99   " all folds open by default
 
 
