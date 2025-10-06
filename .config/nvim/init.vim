@@ -53,10 +53,7 @@ function! MyStatusColumn() abort
     let sign_text = empty(signs) ? ' ' : join(signs, '')
 
 
-    " Check if this line has a fold
-    let foldcol = foldlevel(lnum) > 0 ? (foldclosed(lnum) == -1 ? '' : '') : ' '
-
-    return printf('%-3s%3d %2d %s', sign_text, lnum, relnum, foldcol)
+    return '%s' . printf('%3d %2d ', lnum, relnum) . '%C'
 endfunction
 
 set statuscolumn=%!MyStatusColumn()
