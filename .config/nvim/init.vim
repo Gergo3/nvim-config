@@ -26,37 +26,27 @@ set et
 set sts=4
 set sw=4
 
-"statusbar
+
+
+
+"statuscolumn
 function! MyStatusColumn() abort
     let lnum = v:lnum
     let relnum  = v:relnum
-
-    " ───── Gather all signs for this line ─────
-    let placed = sign_getplaced(bufnr(''), {'lnum': lnum, 'group': '*'})[0].signs
-    let signs = []
-
-    " For each placed sign, get its defined text
-    for sign in placed
-        let def = sign_getdefined(sign.name)
-        if !empty(def)
-            let txt = get(def[0], 'text', '')
-            let hl = get(def[0], 'texthl', '')
-            if !empty(hl)
-                call add(signs, '%#' .. hl .. '#' .. txt .. '%*')
-            else
-                call add(signs, txt)
-            endif
-        endif
-    endfor
-
-    " Combine all sign texts (no separator)
-    let sign_text = empty(signs) ? ' ' : join(signs, '')
 
 
     return '%s' . printf('%3d %2d ', lnum, relnum) . '%C'
 endfunction
 
 set statuscolumn=%!MyStatusColumn()
+
+set signcolumn=yes:3
+
+set foldcolumn=1
+"set fillchars=foldopen:,foldsep:│,foldclose:
+set foldlevel=99   " all folds open by default
+
+
 
 "define plugins
 call plug#begin()
