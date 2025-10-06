@@ -29,7 +29,7 @@ set sw=4
 "statusbar
 function! MyStatusColumn() abort
   let lnum = v:lnum
-  let rel  = v:relnum
+  let relnum  = v:relnum
 
     " ───── Gather all signs for this line ─────
   let placed = sign_getplaced(bufnr(''), {'lnum': lnum, 'group': '*'})[0].signs
