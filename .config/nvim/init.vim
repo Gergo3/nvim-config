@@ -28,29 +28,35 @@ set sw=4
 
 "statusbar
 function! MyStatusColumn() abort
-  let lnum = v:lnum
-  let relnum  = v:relnum
+    let lnum = v:lnum
+    let relnum  = v:relnum
 
     " ───── Gather all signs for this line ─────
-  let placed = sign_getplaced(bufnr(''), {'lnum': lnum, 'group': '*'})[0].signs
-  let signs = []
+    let placed = sign_getplaced(bufnr(''), {'lnum': lnum, 'group': '*'})[0].signs
+    let signs = []
 
-  " For each placed sign, get its defined text
-  for sign in placed
-    let def = sign_getdefined(sign.name)
-    if !empty(def)
-      call add(signs, get(def[0], 'text', ''))
-    endif
-  endfor
+    " For each placed sign, get its defined text
+    for sign in placed
+        let def = sign_getdefined(sign.name)
+        if !empty(def)
+            let txt = get(def[0], 'text', '')
+            let hl = get(def[0], 'texthl', '')
+            if !empty(hl)
+                call add(signs, '%#' .. hl .. '#' .. txt .. '%*')
+            else
+                call add(signs, txt)
+            endif
+        endif
+    endfor
 
-  " Combine all sign texts (no separator)
-  let sign_text = empty(signs) ? ' ' : join(signs, '')
+    " Combine all sign texts (no separator)
+    let sign_text = empty(signs) ? ' ' : join(signs, '')
 
 
-  " Check if this line has a fold
-  let foldcol = foldlevel(lnum) > 0 ? (foldclosed(lnum) == -1 ? '' : '') : ' '
+    " Check if this line has a fold
+    let foldcol = foldlevel(lnum) > 0 ? (foldclosed(lnum) == -1 ? '' : '') : ' '
 
-  return printf('%-3s %3d %3d %s', sign_text, lnum, relnum, foldcol)
+    return printf('%-3s%3d %2d %s', sign_text, lnum, relnum, foldcol)
 endfunction
 
 set statuscolumn=%!MyStatusColumn()
