@@ -8,6 +8,10 @@ on:
       - 'v*.*'
       - 'v*.*.*'
 
+permissions:
+  contents: write
+
+
 jobs:
   ci:
     uses: Gergo3/nvim-docker-workflows/.github/workflows/ci.yml
