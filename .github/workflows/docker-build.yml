@@ -14,5 +14,5 @@ permissions:
 
 jobs:
   ci:
-    uses: Gergo3/nvim-docker-workflows/.github/workflows/ci.yml
+    uses: Gergo3/nvim-docker-workflows/.github/workflows/ci.yml@master
     secrets: inherit
