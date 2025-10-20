@@ -1,13 +1,14 @@
-name: Build and Push Docker
+name: CI/CD
 
 on:
   push:
-    branches: ["master"]
+    branches:
+      - master
+    tags:
+      - 'v*.*'
+      - 'v*.*.*'
 
 jobs:
-  build:
-    uses: Gergo3/nvim-docker-workflows/.github/workflows/docker-build.yml@master
-    with:
-      image-name: nvim-base
+  ci:
+    uses: Gergo3/nvim-docker-workflows/.github/workflows/ci.yml
     secrets: inherit
-
