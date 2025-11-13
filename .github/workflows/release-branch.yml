@@ -1,6 +1,7 @@
 name: Build Docker Image on Branch Push
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'master'  # runs on master branch
