@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   semantic-release:
-    uses: /Gergo3/nvim-docker-workflows/.github/workflows/semver-release.yml@master
+    uses: Gergo3/nvim-docker-workflows/.github/workflows/semver-release.yml@master
     secrets:
       inherit
 
