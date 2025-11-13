@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - 'v*.*.*'  # Matches semantic version tags like v1.2.3
+      - 'v[0-9]*.[0-9]*'       # matches vX.Y
+      - 'v[0-9]*.[0-9]*.[0-9]*'  # matches vX.Y.Z
 
 permissions:
   contents: write  # Required for updating branches
