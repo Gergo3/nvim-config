@@ -1,0 +1,16 @@
+name: Release on Tag
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Matches semantic version tags like v1.2.3
+
+permissions:
+  contents: write  # Required for updating branches
+
+jobs:
+  semantic-release:
+    uses: ./.github/workflows/semver-release.yml
+    secrets:
+      inherit
+
