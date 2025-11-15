@@ -1,12 +1,10 @@
 source ~/.config/nvim/keymaps.vim
-source ~/.config/nvim/dap.vim
 source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/statuscol.vim
 source ~/.config/nvim/indentation.vim
 lua dofile(vim.fn.stdpath("config") .. "/autopairs.lua")
 lua dofile(vim.fn.stdpath("config") .. "/completion.lua")
 lua dofile(vim.fn.stdpath("config") .. "/dap-ui.lua")
-lua dofile(vim.fn.stdpath("config") .. "/lsp.lua")
 
 " Directory containing extra configs
 let etc_dir = expand('~/.config/nvim/etc')
@@ -22,4 +20,6 @@ for f in split(glob(etc_dir . '/*.lua'), '\n')
 endfor
 
 
+lua dofile(vim.fn.stdpath("config") .. "/lsp.lua")
+source ~/.config/nvim/dap.vim
 lua dofile(vim.fn.stdpath("config") .. "/treesitter.lua")
