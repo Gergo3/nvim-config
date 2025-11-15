@@ -9,7 +9,7 @@ endfunction
 
 "set statuscolumn=%!MyStatusColumn()
 "set statuscolumn=%s%3l\ %2r\ %C
-set statuscolumn=%s%3l\ %{printf('%2d', v:relnum)}\ %C
+set statuscolumn="%s%3l %{printf('%2d', v:relnum)} %C"
 
 set signcolumn=yes
 
