@@ -7,12 +7,13 @@ function! MyStatusColumn() abort
     return '%s' . printf('%3d ', lnum) . '%2r ' . '%C '
 endfunction
 
-set statuscolumn=%!MyStatusColumn()
+"set statuscolumn=%!MyStatusColumn()
 "set statuscolumn=%s%3l\ %2r\ %C
+set statuscolumn=%s%3l\ %{printf('%2d', v:relnum)}\ %C
 
 set signcolumn=yes
 
-set rnu
+set nu
 
 set foldcolumn=1
 set fillchars=foldopen:,foldsep:│,foldclose:
