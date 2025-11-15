@@ -6,7 +6,8 @@ function! MyStatusColumn() abort
     return '%s' . printf('%3d %2d ', lnum, relnum) . '%C '
 endfunction
 
-set statuscolumn=%!MyStatusColumn()
+"set statuscolumn=%!MyStatusColumn()
+set statuscolumn=%s%3l\ %2r\ %C
 
 set signcolumn=yes
 
