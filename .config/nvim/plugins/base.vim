@@ -1,6 +1,6 @@
 
 "treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
+Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'master', 'do': ':TSUpdate'}  
 
 "lspconfig
 Plug 'neovim/nvim-lspconfig'
